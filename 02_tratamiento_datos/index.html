@@ -9,6 +9,8 @@
       
       
       
+        <link rel="prev" href="../01_fundamentos/">
+      
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -16,7 +18,7 @@
     
     
       
-        <title>Unidad 2: Manejo de datos con Pandas (orientado a APIs) - Programación en Python</title>
+        <title>U2 - Tratamiento de datos - Programación en Python</title>
       
     
     
@@ -104,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Unidad 2: Manejo de datos con Pandas (orientado a APIs)
+              U2 - Tratamiento de datos
             
           </span>
         </div>
@@ -262,6 +264,267 @@
   
 
       </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    U2 - Tratamiento de datos
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    U2 - Tratamiento de datos
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introducción
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Introducción">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instalacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 Instalación
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-jupyter-notebook" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Jupyter Notebook
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Jupyter Notebook">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ventajas-principales" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Ventajas principales
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estructura-basica" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Estructura básica
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#como-instalar-y-ejecutar-jupyter-notebook" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Cómo instalar y ejecutar Jupyter Notebook
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alternativas-modernas" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Alternativas modernas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usar-jupyter-online-google-colab" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Usar Jupyter online (Google Colab)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#guardar-y-compartir-notebooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Guardar y compartir notebooks
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-crear-y-cargar-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Crear y cargar datos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-exploracion-rapida" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Exploración rápida
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-seleccion-y-filtrado" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Selección y filtrado
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-exploracion-y-deteccion-de-valores-anomalos" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Exploración y detección de valores anómalos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-limpieza-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Limpieza de datos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-uso-de-expresiones-regulares-en-la-limpieza-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Uso de expresiones regulares en la limpieza de datos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-agrupaciones-y-ordenacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Agrupaciones y ordenación
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-preparar-datos-para-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Preparar datos para API
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-guardar-y-exportar-datos-csv-excel-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Guardar y exportar datos (CSV, Excel, JSON)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-resumen-del-flujo-para-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Resumen del flujo para APIs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-dataset-recomendado-para-practicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Dataset recomendado para prácticas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-ejercicio-propuesto" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Ejercicio propuesto
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
