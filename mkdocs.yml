@@ -3,6 +3,7 @@ site_name: Programación en Python
 nav:
   - Home: index.md
   - U1 - Fundamentos de Python: 01_fundamentos/README.md
+  - U2 - Tratamiento de datos: 02_tratamiento_datos/README.md
 
 theme:
   name: material
