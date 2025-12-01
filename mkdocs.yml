@@ -4,6 +4,7 @@ nav:
   - Home: index.md
   - U1 - Fundamentos de Python: 01_fundamentos/README.md
   - U2 - Tratamiento de datos: 02_tratamiento_datos/README.md
+  - U3 - Frameworks desarrollo de API-REST: 03_framework_api_rest/README.md
 
 theme:
   name: material
