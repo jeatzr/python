@@ -14,10 +14,91 @@ Una **API REST** (Representational State Transfer) sigue un conjunto de principi
 
 Principios básicos:
 
-- **Cliente-servidor**
-- **Sin estado (stateless)**
-- **Recursos identificados por URLs**
-- **Uso común de JSON**
+### 2.1 **Cliente-servidor**
+
+El principio cliente-servidor establece una separación clara entre:
+
+- **Cliente**: navegador, app móvil, frontend, script…
+- **Servidor**: la API que expone los datos y la lógica.
+
+Esta separación permite:
+
+- Que el cliente no conozca la implementación interna.
+- Que el servidor no se preocupe por cómo se muestran los datos.
+- Que múltiples clientes diferentes utilicen la misma API.
+
+Ejemplo: un frontend React consume `GET /productos` y muestra los datos como quiera; el servidor solo envía JSON.
+
+### 2.2 **Sin estado (stateless)**
+
+En REST, cada petición HTTP es **totalmente independiente**.  
+El servidor **no mantiene información de sesión** entre peticiones.
+
+Esto significa que:
+
+- Cada petición debe incluir toda la información necesaria.
+- Las credenciales o tokens deben enviarse **en cada petición**.
+- El servidor no “recuerda” nada entre peticiones.
+
+Esto mejora la escalabilidad, la tolerancia a fallos y la simplicidad del servidor.
+
+Ejemplo de dos peticiones independientes:
+
+```
+Request 1:
+GET /perfil
+Authorization: Bearer abc123
+
+Request 2:
+GET /config
+Authorization: Bearer abc123
+```
+
+Cada una contiene todo lo necesario, sin estado almacenado en el servidor.
+
+### 2.3 **Recursos identificados por URLs**
+
+En REST, todo recurso de la aplicación debe tener una URL única:
+
+- `/users`
+- `/users/15`
+- `/products`
+- `/products/247/reviews`
+
+Las URLs representan **qué** recurso quieres.  
+El **cómo** se indica mediante el método HTTP:
+
+- `GET /users` — obtener usuarios
+- `POST /users` — crear usuario
+- `DELETE /users/7` — borrar usuario
+
+Regla básica:
+
+- **URLs = sustantivos**, nunca verbos.
+  - ❌ `/getUsers`
+  - ✔ `/users`
+
+### 2.4 **Uso común de JSON**
+
+Aunque REST no obliga al uso de JSON, hoy en día es el formato estándar porque:
+
+- Es ligero y fácil de leer.
+- Se integra muy bien con JavaScript.
+- Está soportado ampliamente por todos los lenguajes.
+- Es muy cómodo de usar con Python y FastAPI.
+
+Ejemplo de JSON típico:
+
+```json
+{
+  "id": 12,
+  "nombre": "Smart TV",
+  "precio": 599.99,
+  "stock": true
+}
+```
+
+FastAPI valida automáticamente datos JSON y genera documentación OpenAPI basada en ellos.
 
 ---
 
@@ -214,26 +295,124 @@ def obtener_producto(item_id: int):
 
 ## 6. Validación de datos con Pydantic
 
-### Definir un modelo
+Cuando trabajamos con APIs, los datos que llegan desde clientes externos **no son fiables**:  
+pueden venir incompletos, con tipos incorrectos o con valores que no cumplen las reglas del negocio.
+
+FastAPI utiliza **Pydantic** para resolver este problema de forma automática.
+
+---
+
+### ¿Por qué son necesarios los modelos Pydantic?
+
+Los modelos basados en `BaseModel` permiten:
+
+### 6.1 **Validación automática de datos**
+
+Cada vez que un cliente envía JSON al servidor, Pydantic comprueba:
+
+- tipos (`str`, `int`, `float`, `bool`, `list`, `dict`, etc.)
+- campos obligatorios
+- valores por defecto
+- estructuras más complejas (listas, objetos anidados)
+- restricciones (mínimos, máximos, longitudes…)
+
+Si algo no cumple, FastAPI devuelve automáticamente un error 422 con detalles claros.
+
+Esto evita escribir validaciones manuales repetitivas.
+
+---
+
+### 6.2 **Conversión de tipos (“parsing”)**
+
+Pydantic convierte automáticamente los valores al tipo esperado.
+
+Ejemplos:
+
+- `"10"` → `int(10)`
+- `"true"` → `bool(True)`
+- `"2024-05-10"` → `datetime.date`
+- `"12.5"` → `float(12.5)`
+
+Esto hace que tu lógica interna siempre reciba **tipos correctos**.
+
+---
+
+### 6.3 **Modelado de estructuras complejas**
+
+Cuando los datos contienen objetos dentro de objetos, listas, relaciones…  
+se necesita una estructura clara y tipada.
+
+Por ejemplo:
+
+```python
+from pydantic import BaseModel
+
+class Direccion(BaseModel):
+calle: str
+ciudad: str
+
+class Usuario(BaseModel):
+nombre: str
+edad: int
+direccion: Direccion
+```
+
+FastAPI entiende este modelo, valida la anidación y genera documentación automática.
+
+---
+
+### 6.4 **Documentación automática (OpenAPI / Swagger)**
+
+FastAPI utiliza los modelos Pydantic para generar:
+
+- la documentación interactiva (`/docs`)
+- los esquemas OpenAPI
+- los ejemplos de entrada y salida
+
+Esto permite que cualquier cliente entienda exactamente qué datos debe enviar.
+
+---
+
+### 6.5 **Consistencia en datos de entrada y salida**
+
+Los modelos pueden usarse tanto para recibir datos (request) como para devolverlos (response):
+
+- Entrada → valida lo que envía el cliente
+- Salida → define claramente qué devuelve tu API
+
+Así evitas inconsistencias en tu API.
+
+---
+
+### Ejemplo básico de modelo Pydantic
 
 ```python
 from pydantic import BaseModel
 
 class Producto(BaseModel):
-    id: int
-    nombre: str
+id: int
+nombre: str
 ```
 
-### Crear nuevos productos
+Este modelo indica:
 
-```python
-@app.post("/productos")
-def crear_producto(producto: Producto):
-    data.append(producto.dict())
-    return producto
-```
+- `id` debe ser un `int`
+- `nombre` debe ser un `str`
+- Si falta un campo o el tipo es incorrecto, la API lo rechaza automáticamente
 
 ---
+
+### En resumen
+
+Usar modelos Pydantic es necesario porque:
+
+- **validan automáticamente** la información de entrada
+- garantizan que tu código recibe **datos correctos y estructurados**
+- permiten trabajar con **objetos Python tipados**
+- facilitan la **documentación automática**
+- hacen que las APIs sean **predecibles y confiables**
+
+## Son la base de la robustez de FastAPI.
 
 ## 7. Documentación automática
 
