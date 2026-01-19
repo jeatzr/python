@@ -740,7 +740,7 @@ Base.metadata.create_all(bind=engine)
 
 ## 12. Sesiones y operaciones CRUD con SQLAlchemy
 
-Las **sesiones** permiten comunicarse con la base de datos y ejecutar operaciones.
+Las **sesiones** permiten comunicarse con la base de datos y ejecutar operaciones de forma segura.
 
 ---
 
@@ -748,6 +748,7 @@ Las **sesiones** permiten comunicarse con la base de datos y ejecutar operacione
 
 ```python
 from sqlalchemy.orm import sessionmaker
+from database.database import engine
 
 SessionLocal = sessionmaker(
     autocommit=False,
@@ -756,9 +757,91 @@ SessionLocal = sessionmaker(
 )
 ```
 
+- `autocommit=False` → obliga a confirmar cambios con `commit()`
+- `autoflush=False` → evita escribir automáticamente cambios pendientes
+- `bind=engine` → asocia la sesión con la base de datos configurada
+
 ---
 
-### 12.2 Operaciones CRUD básicas
+### 12.2 Inyección de dependencias con FastAPI
+
+Para usar la sesión en los endpoints de FastAPI de manera segura y automática se define una función **dependencia**:
+
+```python
+from fastapi import Depends
+from sqlalchemy.orm import Session
+
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db   # devuelve la sesión al endpoint
+    finally:
+        db.close() # asegura que la sesión se cierra al terminar
+```
+
+#### Explicación paso a paso
+
+1. Cada vez que un endpoint que usa `Depends(get_db)` es llamado, FastAPI ejecuta `get_db()`.
+2. `db = SessionLocal()` → crea una nueva sesión para esa petición.
+3. `yield db` → la sesión se pasa **como argumento** al endpoint.
+4. Cuando el endpoint termina (o si ocurre un error), se ejecuta el bloque `finally` → la sesión se cierra automáticamente.
+5. Esto asegura que **cada petición tiene su propia sesión** y no quedan conexiones abiertas.
+
+---
+
+### 12.3 Uso de la sesión en un endpoint
+
+```python
+from fastapi import APIRouter
+
+router = APIRouter()
+
+@router.get("/", response_model=list[UserResponse])
+def get_users(db: Session = Depends(get_db)):
+    return db.query(User).all()
+```
+
+Flujo de ejecución:
+
+1. La petición HTTP llega al endpoint `/users/`.
+2. FastAPI llama a `get_db()` y obtiene `db` (sesión).
+3. `db.query(User).all()` consulta todos los usuarios en la base de datos.
+4. FastAPI convierte los objetos ORM `User` a Pydantic `UserResponse`.
+5. Se devuelve la respuesta al cliente.
+6. Se ejecuta `finally: db.close()` y se cierra la sesión.
+
+---
+
+### 12.4 Diagrama conceptual
+
+```
+[Petición HTTP]
+       |
+       v
+[FastAPI Endpoint] ---Depends(get_db)--> [get_db() crea sesión]
+                                            |
+                                            v
+                                  [db.query(...)]
+                                            |
+                                            v
+                           [Resultado devuelto al endpoint]
+                                            |
+                                            v
+                                [finally: db.close()]
+```
+
+---
+
+### 12.5 Ventajas de este enfoque
+
+- No hay que abrir/cerrar la sesión manualmente en cada endpoint.
+- Funciona de manera segura con múltiples endpoints concurrentes.
+- Evita errores por conexiones abiertas o sesiones compartidas entre peticiones.
+- Compatible con **routers** y modularización del proyecto.
+
+---
+
+### 12.6 Operaciones CRUD básicas
 
 #### Crear un registro
 
