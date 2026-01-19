@@ -1,0 +1,1428 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../02_tratamiento_datos/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
+    
+    
+      
+        <title>U3 - Frameworks desarrollo de API-REST - Programación en Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#unidad-3-frameworks-para-construccion-de-apis-de-datos-en-python" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Programación en Python" class="md-header__button md-logo" aria-label="Programación en Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programación en Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              U3 - Frameworks desarrollo de API-REST
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="indigo"  aria-label="Switch to automatic mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to automatic mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Programación en Python" class="md-nav__button md-logo" aria-label="Programación en Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Programación en Python
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_fundamentos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    U1 - Fundamentos de Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_tratamiento_datos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    U2 - Tratamiento de datos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    U3 - Frameworks desarrollo de API-REST
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    U3 - Frameworks desarrollo de API-REST
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introducción
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-que-es-una-api-rest" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. ¿Qué es una API REST?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. ¿Qué es una API REST?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-cliente-servidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Cliente-servidor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-sin-estado-stateless" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Sin estado (stateless)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-recursos-identificados-por-urls" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 Recursos identificados por URLs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-uso-comun-de-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 Uso común de JSON
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-frameworks-en-python-para-crear-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Frameworks en Python para crear APIs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Frameworks en Python para crear APIs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-flask" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Flask
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-django-rest-framework-drf" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Django REST Framework (DRF)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-fastapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 FastAPI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-otros-frameworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Otros frameworks
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-por-que-vamos-a-usar-fastapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. ¿Por qué vamos a usar FastAPI?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-construyendo-una-api-con-fastapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Construyendo una API con FastAPI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Construyendo una API con FastAPI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-instalacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Instalación
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-estructura-basica-del-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Estructura básica del proyecto
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-api-minima" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 API mínima
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-ejecutar-la-api-version-moderna" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4 Ejecutar la API (versión moderna)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-endpoints-de-ejemplo" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5 Endpoints de ejemplo
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-validacion-de-datos-con-pydantic" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Validación de datos con Pydantic
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Validación de datos con Pydantic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#por-que-son-necesarios-los-modelos-pydantic" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Por qué son necesarios los modelos Pydantic?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#61-validacion-automatica-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Validación automática de datos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-conversion-de-tipos-parsing" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Conversión de tipos (“parsing”)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-modelado-de-estructuras-complejas" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 Modelado de estructuras complejas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-documentacion-automatica-openapi-swagger" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.4 Documentación automática (OpenAPI / Swagger)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-consistencia-en-datos-de-entrada-y-salida" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.5 Consistencia en datos de entrada y salida
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-basico-de-modelo-pydantic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo básico de modelo Pydantic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#en-resumen" class="md-nav__link">
+    <span class="md-ellipsis">
+      En resumen
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#son-la-base-de-la-robustez-de-fastapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Son la base de la robustez de FastAPI.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-documentacion-automatica" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Documentación automática
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-consideraciones-modernas-sobre-servidores-asgi" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Consideraciones modernas sobre servidores ASGI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Consideraciones modernas sobre servidores ASGI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uvicorn-como-servidor-por-defecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uvicorn como servidor por defecto
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modo-multiproceso-sin-gunicorn" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modo multiproceso sin Gunicorn
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-proximo-paso" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Próximo paso
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introducción
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-que-es-una-api-rest" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. ¿Qué es una API REST?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. ¿Qué es una API REST?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-cliente-servidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Cliente-servidor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-sin-estado-stateless" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Sin estado (stateless)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-recursos-identificados-por-urls" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 Recursos identificados por URLs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-uso-comun-de-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 Uso común de JSON
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-frameworks-en-python-para-crear-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Frameworks en Python para crear APIs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Frameworks en Python para crear APIs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-flask" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Flask
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-django-rest-framework-drf" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Django REST Framework (DRF)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-fastapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 FastAPI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-otros-frameworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Otros frameworks
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-por-que-vamos-a-usar-fastapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. ¿Por qué vamos a usar FastAPI?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-construyendo-una-api-con-fastapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Construyendo una API con FastAPI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Construyendo una API con FastAPI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-instalacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Instalación
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-estructura-basica-del-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Estructura básica del proyecto
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-api-minima" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 API mínima
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-ejecutar-la-api-version-moderna" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4 Ejecutar la API (versión moderna)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-endpoints-de-ejemplo" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5 Endpoints de ejemplo
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-validacion-de-datos-con-pydantic" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Validación de datos con Pydantic
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Validación de datos con Pydantic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#por-que-son-necesarios-los-modelos-pydantic" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Por qué son necesarios los modelos Pydantic?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#61-validacion-automatica-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Validación automática de datos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-conversion-de-tipos-parsing" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Conversión de tipos (“parsing”)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-modelado-de-estructuras-complejas" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 Modelado de estructuras complejas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-documentacion-automatica-openapi-swagger" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.4 Documentación automática (OpenAPI / Swagger)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-consistencia-en-datos-de-entrada-y-salida" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.5 Consistencia en datos de entrada y salida
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-basico-de-modelo-pydantic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo básico de modelo Pydantic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#en-resumen" class="md-nav__link">
+    <span class="md-ellipsis">
+      En resumen
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#son-la-base-de-la-robustez-de-fastapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Son la base de la robustez de FastAPI.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-documentacion-automatica" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Documentación automática
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-consideraciones-modernas-sobre-servidores-asgi" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Consideraciones modernas sobre servidores ASGI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Consideraciones modernas sobre servidores ASGI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uvicorn-como-servidor-por-defecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uvicorn como servidor por defecto
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modo-multiproceso-sin-gunicorn" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modo multiproceso sin Gunicorn
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-proximo-paso" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Próximo paso
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="unidad-3-frameworks-para-construccion-de-apis-de-datos-en-python">Unidad 3: Frameworks para Construcción de APIs de Datos en Python</h1>
+<h2 id="1-introduccion">1. Introducción</h2>
+<p>En esta unidad veremos los principales <strong>frameworks para crear APIs de datos en Python</strong>, sus características, ventajas y desventajas. Finalmente, nos centraremos en <strong>FastAPI</strong>, que será el framework elegido para desarrollar una API de datos sencilla.</p>
+<p>Las APIs permiten exponer datos y funcionalidades a través de endpoints accesibles mediante HTTP, facilitando la comunicación entre aplicaciones.</p>
+<hr />
+<h2 id="2-que-es-una-api-rest">2. ¿Qué es una API REST?</h2>
+<p>Una <strong>API REST</strong> (Representational State Transfer) sigue un conjunto de principios arquitectónicos que permiten comunicar sistemas usando peticiones HTTP estándar como <strong>GET, POST, PUT, DELETE</strong>.</p>
+<p>Principios básicos:</p>
+<h3 id="21-cliente-servidor">2.1 <strong>Cliente-servidor</strong></h3>
+<p>El principio cliente-servidor establece una separación clara entre:</p>
+<ul>
+<li><strong>Cliente</strong>: navegador, app móvil, frontend, script…</li>
+<li><strong>Servidor</strong>: la API que expone los datos y la lógica.</li>
+</ul>
+<p>Esta separación permite:</p>
+<ul>
+<li>Que el cliente no conozca la implementación interna.</li>
+<li>Que el servidor no se preocupe por cómo se muestran los datos.</li>
+<li>Que múltiples clientes diferentes utilicen la misma API.</li>
+</ul>
+<p>Ejemplo: un frontend React consume <code>GET /productos</code> y muestra los datos como quiera; el servidor solo envía JSON.</p>
+<h3 id="22-sin-estado-stateless">2.2 <strong>Sin estado (stateless)</strong></h3>
+<p>En REST, cada petición HTTP es <strong>totalmente independiente</strong>.<br />
+El servidor <strong>no mantiene información de sesión</strong> entre peticiones.</p>
+<p>Esto significa que:</p>
+<ul>
+<li>Cada petición debe incluir toda la información necesaria.</li>
+<li>Las credenciales o tokens deben enviarse <strong>en cada petición</strong>.</li>
+<li>El servidor no “recuerda” nada entre peticiones.</li>
+</ul>
+<p>Esto mejora la escalabilidad, la tolerancia a fallos y la simplicidad del servidor.</p>
+<p>Ejemplo de dos peticiones independientes:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Request 1:
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>GET /perfil
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Authorization: Bearer abc123
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Request 2:
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>GET /config
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>Authorization: Bearer abc123
+</span></code></pre></div>
+<p>Cada una contiene todo lo necesario, sin estado almacenado en el servidor.</p>
+<h3 id="23-recursos-identificados-por-urls">2.3 <strong>Recursos identificados por URLs</strong></h3>
+<p>En REST, todo recurso de la aplicación debe tener una URL única:</p>
+<ul>
+<li><code>/users</code></li>
+<li><code>/users/15</code></li>
+<li><code>/products</code></li>
+<li><code>/products/247/reviews</code></li>
+</ul>
+<p>Las URLs representan <strong>qué</strong> recurso quieres.<br />
+El <strong>cómo</strong> se indica mediante el método HTTP:</p>
+<ul>
+<li><code>GET /users</code> — obtener usuarios</li>
+<li><code>POST /users</code> — crear usuario</li>
+<li><code>DELETE /users/7</code> — borrar usuario</li>
+</ul>
+<p>Regla básica:</p>
+<ul>
+<li><strong>URLs = sustantivos</strong>, nunca verbos.</li>
+<li>❌ <code>/getUsers</code></li>
+<li>✔ <code>/users</code></li>
+</ul>
+<h3 id="24-uso-comun-de-json">2.4 <strong>Uso común de JSON</strong></h3>
+<p>Aunque REST no obliga al uso de JSON, hoy en día es el formato estándar porque:</p>
+<ul>
+<li>Es ligero y fácil de leer.</li>
+<li>Se integra muy bien con JavaScript.</li>
+<li>Está soportado ampliamente por todos los lenguajes.</li>
+<li>Es muy cómodo de usar con Python y FastAPI.</li>
+</ul>
+<p>Ejemplo de JSON típico:</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">&quot;nombre&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Smart TV&quot;</span><span class="p">,</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nt">&quot;precio&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">599.99</span><span class="p">,</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="nt">&quot;stock&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>FastAPI valida automáticamente datos JSON y genera documentación OpenAPI basada en ellos.</p>
+<hr />
+<h2 id="3-frameworks-en-python-para-crear-apis">3. Frameworks en Python para crear APIs</h2>
+<h3 id="31-flask">3.1 Flask</h3>
+<p>Framework minimalista, flexible y muy extendido.</p>
+<p><strong>Ventajas:</strong></p>
+<ul>
+<li>Simple de aprender.</li>
+<li>Muy extensible.</li>
+</ul>
+<p><strong>Desventajas:</strong></p>
+<ul>
+<li>No ofrece validación ni documentación automática por defecto.</li>
+</ul>
+<p><strong>Ejemplo mínimo:</strong></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">flask</span><span class="w"> </span><span class="kn">import</span> <span class="n">Flask</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/hello&quot;</span><span class="p">)</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">hello</span><span class="p">():</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;Hola desde Flask&quot;</span><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h3 id="32-django-rest-framework-drf">3.2 Django REST Framework (DRF)</h3>
+<p>Extensión de Django para APIs robustas.</p>
+<p><strong>Ventajas:</strong></p>
+<ul>
+<li>Sistema completo de autenticación, permisos y serialización.</li>
+<li>Ideal para proyectos grandes.</li>
+</ul>
+<p><strong>Desventajas:</strong></p>
+<ul>
+<li>Requiere aprender Django.</li>
+<li>Más pesado que otros frameworks.</li>
+</ul>
+<p><strong>Ejemplo mínimo:</strong></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rest_framework.views</span><span class="w"> </span><span class="kn">import</span> <span class="n">APIView</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rest_framework.response</span><span class="w"> </span><span class="kn">import</span> <span class="n">Response</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="k">class</span><span class="w"> </span><span class="nc">Hello</span><span class="p">(</span><span class="n">APIView</span><span class="p">):</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>        <span class="k">return</span> <span class="n">Response</span><span class="p">({</span><span class="s2">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;Hola desde DRF&quot;</span><span class="p">})</span>
+</span></code></pre></div>
+<hr />
+<h3 id="33-fastapi">3.3 FastAPI</h3>
+<p>Framework moderno, rápido y basado en tipado.</p>
+<p><strong>Ventajas:</strong></p>
+<ul>
+<li>Tipado automático con Pydantic.</li>
+<li>Documentación automática (Swagger y ReDoc).</li>
+<li>Muy rápido (ASGI: Starlette + Uvicorn).</li>
+<li>Ideal para APIs de datos.</li>
+</ul>
+<p><strong>Desventajas:</strong></p>
+<ul>
+<li>Menos maduro que Django.</li>
+<li>Para proyectos enormes se necesita arquitectura adicional.</li>
+</ul>
+<p><strong>Ejemplo mínimo:</strong></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/hello&quot;</span><span class="p">)</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">hello</span><span class="p">():</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;Hola desde FastAPI&quot;</span><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h3 id="34-otros-frameworks">3.4 Otros frameworks</h3>
+<ul>
+<li><strong>Falcon:</strong> muy rápido, minimalista.</li>
+<li><strong>Bottle:</strong> parecido a Flask.</li>
+<li><strong>Tornado:</strong> orientado a websockets.</li>
+</ul>
+<hr />
+<h2 id="4-por-que-vamos-a-usar-fastapi">4. ¿Por qué vamos a usar FastAPI?</h2>
+<p>Elegimos FastAPI porque:</p>
+<ul>
+<li>Produce APIs limpias y modernas.</li>
+<li>Tiene tipado estricto.</li>
+<li>Genera documentación automáticamente.</li>
+<li>Es fácil de desplegar.</li>
+<li>Muy útil en proyectos de datos.</li>
+</ul>
+<hr />
+<h2 id="5-construyendo-una-api-con-fastapi">5. Construyendo una API con FastAPI</h2>
+<h3 id="51-instalacion">5.1 Instalación</h3>
+<p>Instalación recomendada:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>pip<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;fastapi[standard]&quot;</span>
+</span></code></pre></div>
+<p>Esto instala FastAPI + Uvicorn + dependencias recomendadas.</p>
+<hr />
+<h3 id="52-estructura-basica-del-proyecto">5.2 Estructura básica del proyecto</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>project/
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>│-- main.py
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>│-- requirements.txt
+</span></code></pre></div>
+<hr />
+<h3 id="53-api-minima">5.3 API mínima</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">read_root</span><span class="p">():</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;mensaje&quot;</span><span class="p">:</span> <span class="s2">&quot;Bienvenido a la API&quot;</span><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h3 id="54-ejecutar-la-api-version-moderna">5.4 Ejecutar la API (versión moderna)</h3>
+<p>FastAPI ahora incluye un comando propio para ejecutar la aplicación:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>fastapi<span class="w"> </span>run<span class="w"> </span>main.py<span class="w"> </span>--reload
+</span></code></pre></div>
+<p>Este comando es un <em>wrapper</em> del servidor ASGI Uvicorn.</p>
+<p>También puedes ejecutar Uvicorn directamente:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>uvicorn<span class="w"> </span>main:app<span class="w"> </span>--reload
+</span></code></pre></div>
+<p>Ambos son equivalentes.<br />
+<code>fastapi run</code> es el recomendado por simplicidad.</p>
+<hr />
+<h3 id="55-endpoints-de-ejemplo">5.5 Endpoints de ejemplo</h3>
+<h4 id="listado-de-datos">Listado de datos</h4>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Producto A&quot;</span><span class="p">},</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Producto B&quot;</span><span class="p">}</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="p">]</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/productos&quot;</span><span class="p">)</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="k">def</span><span class="w"> </span><span class="nf">listar_productos</span><span class="p">():</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>    <span class="k">return</span> <span class="n">data</span>
+</span></code></pre></div>
+<h4 id="obtener-un-elemento-por-id">Obtener un elemento por ID</h4>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/productos/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">obtener_producto</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>        <span class="k">if</span> <span class="n">p</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">item_id</span><span class="p">:</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>            <span class="k">return</span> <span class="n">p</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="s2">&quot;Producto no encontrado&quot;</span><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="6-validacion-de-datos-con-pydantic">6. Validación de datos con Pydantic</h2>
+<p>Cuando trabajamos con APIs, los datos que llegan desde clientes externos <strong>no son fiables</strong>:<br />
+pueden venir incompletos, con tipos incorrectos o con valores que no cumplen las reglas del negocio.</p>
+<p>FastAPI utiliza <strong>Pydantic</strong> para resolver este problema de forma automática.</p>
+<hr />
+<h3 id="por-que-son-necesarios-los-modelos-pydantic">¿Por qué son necesarios los modelos Pydantic?</h3>
+<p>Los modelos basados en <code>BaseModel</code> permiten:</p>
+<h3 id="61-validacion-automatica-de-datos">6.1 <strong>Validación automática de datos</strong></h3>
+<p>Cada vez que un cliente envía JSON al servidor, Pydantic comprueba:</p>
+<ul>
+<li>tipos (<code>str</code>, <code>int</code>, <code>float</code>, <code>bool</code>, <code>list</code>, <code>dict</code>, etc.)</li>
+<li>campos obligatorios</li>
+<li>valores por defecto</li>
+<li>estructuras más complejas (listas, objetos anidados)</li>
+<li>restricciones (mínimos, máximos, longitudes…)</li>
+</ul>
+<p>Si algo no cumple, FastAPI devuelve automáticamente un error 422 con detalles claros.</p>
+<p>Esto evita escribir validaciones manuales repetitivas.</p>
+<hr />
+<h3 id="62-conversion-de-tipos-parsing">6.2 <strong>Conversión de tipos (“parsing”)</strong></h3>
+<p>Pydantic convierte automáticamente los valores al tipo esperado.</p>
+<p>Ejemplos:</p>
+<ul>
+<li><code>"10"</code> → <code>int(10)</code></li>
+<li><code>"true"</code> → <code>bool(True)</code></li>
+<li><code>"2024-05-10"</code> → <code>datetime.date</code></li>
+<li><code>"12.5"</code> → <code>float(12.5)</code></li>
+</ul>
+<p>Esto hace que tu lógica interna siempre reciba <strong>tipos correctos</strong>.</p>
+<hr />
+<h3 id="63-modelado-de-estructuras-complejas">6.3 <strong>Modelado de estructuras complejas</strong></h3>
+<p>Cuando los datos contienen objetos dentro de objetos, listas, relaciones…<br />
+se necesita una estructura clara y tipada.</p>
+<p>Por ejemplo:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pydantic</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseModel</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">Direccion</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="n">calle</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="n">ciudad</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="k">class</span><span class="w"> </span><span class="nc">Usuario</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="n">nombre</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="n">edad</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="n">direccion</span><span class="p">:</span> <span class="n">Direccion</span>
+</span></code></pre></div>
+<p>FastAPI entiende este modelo, valida la anidación y genera documentación automática.</p>
+<hr />
+<h3 id="64-documentacion-automatica-openapi-swagger">6.4 <strong>Documentación automática (OpenAPI / Swagger)</strong></h3>
+<p>FastAPI utiliza los modelos Pydantic para generar:</p>
+<ul>
+<li>la documentación interactiva (<code>/docs</code>)</li>
+<li>los esquemas OpenAPI</li>
+<li>los ejemplos de entrada y salida</li>
+</ul>
+<p>Esto permite que cualquier cliente entienda exactamente qué datos debe enviar.</p>
+<hr />
+<h3 id="65-consistencia-en-datos-de-entrada-y-salida">6.5 <strong>Consistencia en datos de entrada y salida</strong></h3>
+<p>Los modelos pueden usarse tanto para recibir datos (request) como para devolverlos (response):</p>
+<ul>
+<li>Entrada → valida lo que envía el cliente</li>
+<li>Salida → define claramente qué devuelve tu API</li>
+</ul>
+<p>Así evitas inconsistencias en tu API.</p>
+<hr />
+<h3 id="ejemplo-basico-de-modelo-pydantic">Ejemplo básico de modelo Pydantic</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pydantic</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseModel</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">Producto</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="n">nombre</span><span class="p">:</span> <span class="nb">str</span>
+</span></code></pre></div>
+<p>Este modelo indica:</p>
+<ul>
+<li><code>id</code> debe ser un <code>int</code></li>
+<li><code>nombre</code> debe ser un <code>str</code></li>
+<li>Si falta un campo o el tipo es incorrecto, la API lo rechaza automáticamente</li>
+</ul>
+<hr />
+<h3 id="en-resumen">En resumen</h3>
+<p>Usar modelos Pydantic es necesario porque:</p>
+<ul>
+<li><strong>validan automáticamente</strong> la información de entrada</li>
+<li>garantizan que tu código recibe <strong>datos correctos y estructurados</strong></li>
+<li>permiten trabajar con <strong>objetos Python tipados</strong></li>
+<li>facilitan la <strong>documentación automática</strong></li>
+<li>hacen que las APIs sean <strong>predecibles y confiables</strong></li>
+</ul>
+<h2 id="son-la-base-de-la-robustez-de-fastapi">Son la base de la robustez de FastAPI.</h2>
+<h2 id="7-documentacion-automatica">7. Documentación automática</h2>
+<p>FastAPI genera automáticamente:</p>
+<ul>
+<li>Swagger UI → <code>/docs</code></li>
+<li>ReDoc → <code>/redoc</code></li>
+</ul>
+<p>Permiten probar la API sin escribir código adicional.</p>
+<hr />
+<h2 id="8-consideraciones-modernas-sobre-servidores-asgi">8. Consideraciones modernas sobre servidores ASGI</h2>
+<h3 id="uvicorn-como-servidor-por-defecto">Uvicorn como servidor por defecto</h3>
+<p>Aunque ahora exista <code>fastapi run</code>, FastAPI sigue usando Uvicorn internamente.</p>
+<h3 id="modo-multiproceso-sin-gunicorn">Modo multiproceso sin Gunicorn</h3>
+<p>Actualmente puedes usar workers directamente:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>fastapi<span class="w"> </span>run<span class="w"> </span>main.py<span class="w"> </span>--workers<span class="w"> </span><span class="m">4</span>
+</span></code></pre></div>
+<p>O con Uvicorn:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>uvicorn<span class="w"> </span>main:app<span class="w"> </span>--workers<span class="w"> </span><span class="m">4</span>
+</span></code></pre></div>
+<p>Gunicorn <strong>ya no es necesario</strong> en la mayoría de despliegues.</p>
+<hr />
+<h2 id="9-proximo-paso">9. Próximo paso</h2>
+<p>En clase construiremos una API completa con FastAPI, conectada a un dataset real y con operaciones CRUD completas.</p>
+<p>Estos apuntes sirven como referencia para preparar esa práctica.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      
+    
+  </body>
+</html>

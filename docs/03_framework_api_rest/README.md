@@ -449,8 +449,382 @@ Gunicorn **ya no es necesario** en la mayoría de despliegues.
 
 ---
 
-## 9. Próximo paso
+---
 
-En clase construiremos una API completa con FastAPI, conectada a un dataset real y con operaciones CRUD completas.
+---
 
-Estos apuntes sirven como referencia para preparar esa práctica.
+## 9. Organización de la API mediante rutas (routes)
+
+A medida que una API crece, concentrar todo el código en un único archivo (`main.py`) deja de ser una buena práctica.  
+FastAPI permite organizar la aplicación en **módulos de rutas** mediante el uso de `APIRouter`.
+
+Esto permite:
+
+- Separar funcionalidades
+- Mantener el código ordenado
+- Escalar la aplicación con facilidad
+- Integrar nuevas capas (como la base de datos) sin mezclar responsabilidades
+
+---
+
+### 9.1 ¿Qué es un router en FastAPI?
+
+Un **router** es un conjunto de endpoints relacionados entre sí.  
+Por ejemplo:
+
+- `/productos`
+- `/usuarios`
+- `/pedidos`
+
+Cada grupo de endpoints puede definirse en un archivo distinto.
+
+---
+
+### 9.2 Creación de un router básico
+
+Ejemplo de router para gestionar productos:
+
+```python
+from fastapi import APIRouter
+
+router = APIRouter(
+    prefix="/productos",
+    tags=["productos"]
+)
+
+@router.get("/")
+def listar_productos():
+    return {"mensaje": "Listado de productos"}
+```
+
+- `prefix` añade una ruta base común
+- `tags` agrupa los endpoints en la documentación automática
+
+---
+
+### 9.3 Integración del router en la aplicación principal
+
+En el archivo principal de la aplicación:
+
+```python
+from fastapi import FastAPI
+from routes import productos
+
+app = FastAPI()
+
+app.include_router(productos.router)
+```
+
+A partir de este momento, la ruta `/productos/` queda disponible.
+
+---
+
+### 9.4 Estructura recomendada del proyecto
+
+Una estructura típica de proyecto podría ser:
+
+```
+app/
+├── main.py
+├── routes/
+│   └── productos.py
+├── models/
+├── schemas/
+└── database/
+```
+
+Esta organización facilita el mantenimiento y la escalabilidad del proyecto.
+
+---
+
+### 9.5 Ventajas de usar routers
+
+- Separación clara de responsabilidades
+- Código más limpio y legible
+- Facilita el trabajo en equipo
+- Integración natural con bases de datos y servicios externos
+
+---
+
+## 10. Persistencia de datos y uso de ORM
+
+Hasta ahora, la API ha trabajado con datos almacenados en memoria, lo que implica que los datos se pierden cada vez que se reinicia la aplicación.
+
+Para solucionar este problema se introduce:
+
+- Una **base de datos real**
+- Un **ORM** para interactuar con ella desde Python
+
+---
+
+### 10.1 ¿Qué es un ORM?
+
+Un **ORM (Object Relational Mapper)** es una herramienta que permite trabajar con una base de datos relacional usando **clases y objetos de Python**, evitando escribir SQL directamente.
+
+Relación entre conceptos:
+
+| Base de datos | ORM      |
+| ------------- | -------- |
+| Tabla         | Clase    |
+| Columna       | Atributo |
+| Fila          | Objeto   |
+
+El ORM se encarga de traducir automáticamente las operaciones en Python a sentencias SQL.
+
+---
+
+### 10.2 Ventajas de usar un ORM en una API
+
+- Reduce la cantidad de SQL manual
+- Evita errores comunes
+- Mejora la mantenibilidad del código
+- Permite cambiar de base de datos con pocos cambios
+- Se integra perfectamente con FastAPI y Pydantic
+
+---
+
+### 10.3 SQLite como base de datos
+
+Para esta unidad se utiliza **SQLite**, ya que:
+
+- No requiere servidor
+- Usa un único archivo `.db`
+- Es ligera y fácil de configurar
+- Ideal para prácticas y proyectos educativos
+
+---
+
+### 10.4 SQLAlchemy como ORM
+
+**SQLAlchemy** es uno de los ORM más utilizados en Python.  
+Permite definir tablas como clases y realizar operaciones CRUD de forma sencilla.
+
+---
+
+### 10.5 Instalación de SQLAlchemy
+
+```bash
+pip install sqlalchemy
+```
+
+---
+
+## 11. Configuración de la base de datos con SQLAlchemy
+
+---
+
+### 11.1 Conexión a la base de datos
+
+Para conectarse a una base de datos con SQLAlchemy es necesario definir un **motor de conexión (`engine`)**.  
+El motor indica **qué base de datos se va a usar** y **cómo conectarse a ella**.
+
+---
+
+#### Conexión a SQLite (motor incluido en Python)
+
+En el caso de **SQLite**, no es necesario instalar ningún motor adicional, ya que:
+
+- SQLite viene incluido por defecto en Python mediante el módulo estándar `sqlite3`
+- SQLAlchemy utiliza internamente ese módulo
+- No hay servidor de base de datos
+
+Ejemplo de conexión a SQLite:
+
+```python
+from sqlalchemy import create_engine
+
+DATABASE_URL = "sqlite:///./database.db"
+
+engine = create_engine(
+DATABASE_URL,
+connect_args={"check_same_thread": False}
+)
+```
+
+Notas importantes:
+
+- El archivo `database.db` se crea automáticamente si no existe
+- `check_same_thread=False` es necesario al usar SQLite con FastAPI
+- No se requiere ninguna instalación adicional aparte de SQLAlchemy
+
+---
+
+#### Conexión a MySQL (ejemplo teórico)
+
+En bases de datos como **MySQL**, el proceso es distinto:
+
+- Es necesario instalar un **servidor de base de datos**
+- Se debe instalar un **driver de conexión**
+- La URL de conexión cambia
+
+Ejemplo de instalación del driver:
+
+```bash
+pip install pymysql
+```
+
+Ejemplo de conexión a MySQL con SQLAlchemy:
+
+```python
+from sqlalchemy import create_engine
+
+DATABASE_URL = "mysql+pymysql://usuario:password@localhost:3306/nombre_bd"
+
+engine = create_engine(DATABASE_URL)
+```
+
+Donde:
+
+- `usuario` es el usuario de la base de datos
+- `password` es la contraseña
+- `localhost` es el servidor
+- `3306` es el puerto por defecto de MySQL
+- `nombre_bd` es la base de datos
+
+---
+
+#### Comparación SQLite vs MySQL
+
+| Característica | SQLite       | MySQL          |
+| -------------- | ------------ | -------------- |
+| Instalación    | No necesaria | Sí             |
+| Servidor       | No           | Sí             |
+| Archivo único  | Sí           | No             |
+| Uso educativo  | Ideal        | No recomendado |
+| Uso producción | Limitado     | Habitual       |
+
+En esta unidad se utilizará **SQLite**, pero el uso de un ORM permite cambiar de motor con mínimos cambios en el código.
+
+---
+
+### 11.2 Base declarativa
+
+SQLAlchemy utiliza una clase base común para todos los modelos ORM:
+
+```python
+from sqlalchemy.orm import declarative_base
+
+Base = declarative_base()
+```
+
+---
+
+### 11.3 Definición de modelos ORM
+
+Ejemplo de modelo `Producto`:
+
+```python
+from sqlalchemy import Column, Integer, String, Float, Boolean
+
+class Producto(Base):
+    __tablename__ = "productos"
+
+    id = Column(Integer, primary_key=True, index=True)
+    nombre = Column(String, nullable=False)
+    precio = Column(Float, nullable=False)
+    stock = Column(Integer, nullable=False)
+    disponible = Column(Boolean, default=True)
+```
+
+Cada instancia de esta clase representa una fila de la tabla.
+
+---
+
+### 11.4 Creación de las tablas
+
+```python
+Base.metadata.create_all(bind=engine)
+```
+
+---
+
+## 12. Sesiones y operaciones CRUD con SQLAlchemy
+
+Las **sesiones** permiten comunicarse con la base de datos y ejecutar operaciones.
+
+---
+
+### 12.1 Configuración de la sesión
+
+```python
+from sqlalchemy.orm import sessionmaker
+
+SessionLocal = sessionmaker(
+    autocommit=False,
+    autoflush=False,
+    bind=engine
+)
+```
+
+---
+
+### 12.2 Operaciones CRUD básicas
+
+#### Crear un registro
+
+```python
+producto = Producto(
+    nombre="Ratón",
+    precio=19.99,
+    stock=25,
+    disponible=True
+)
+
+db.add(producto)
+db.commit()
+db.refresh(producto)
+```
+
+---
+
+#### Leer registros
+
+```python
+productos = db.query(Producto).all()
+```
+
+Obtener un registro por ID:
+
+```python
+producto = db.query(Producto).filter(Producto.id == 1).first()
+```
+
+---
+
+#### Actualizar un registro
+
+```python
+producto.precio = 17.99
+db.commit()
+```
+
+---
+
+#### Eliminar un registro
+
+```python
+db.delete(producto)
+db.commit()
+```
+
+---
+
+## 13. Relación entre Pydantic y SQLAlchemy
+
+En una API con FastAPI se utilizan dos tipos de modelos:
+
+- **Modelos Pydantic**  
+  Validan y estructuran los datos que entran y salen de la API.
+
+- **Modelos SQLAlchemy (ORM)**  
+  Definen cómo se almacenan los datos en la base de datos.
+
+Esta separación de responsabilidades mejora la claridad, la seguridad y el mantenimiento del proyecto.
+
+---
+
+## 14. Conclusión
+
+La combinación de **FastAPI + routers + Pydantic + SQLAlchemy + SQLite** permite crear APIs REST bien estructuradas, con persistencia real y listas para ser consumidas por aplicaciones frontend.
+
+---
