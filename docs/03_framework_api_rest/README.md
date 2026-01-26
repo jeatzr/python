@@ -892,7 +892,7 @@ db.commit()
 
 ---
 
-## 13. Relación entre Pydantic y SQLAlchemy
+### 12.7 Relación entre Pydantic y SQLAlchemy
 
 En una API con FastAPI se utilizan dos tipos de modelos:
 
@@ -904,10 +904,129 @@ En una API con FastAPI se utilizan dos tipos de modelos:
 
 Esta separación de responsabilidades mejora la claridad, la seguridad y el mantenimiento del proyecto.
 
----
-
-## 14. Conclusión
+#### Conclusión
 
 La combinación de **FastAPI + routers + Pydantic + SQLAlchemy + SQLite** permite crear APIs REST bien estructuradas, con persistencia real y listas para ser consumidas por aplicaciones frontend.
+
+---
+
+## 13. Acceso a la API desde frontend y problema de CORS
+
+Cuando una API desarrollada con FastAPI se consume desde una aplicación frontend (por ejemplo, **React**), es habitual encontrarse con el llamado **error de CORS**.
+
+---
+
+### 13.1 ¿Qué es CORS?
+
+**CORS** (_Cross-Origin Resource Sharing_) es un mecanismo de seguridad implementado por los **navegadores web**.
+
+Un navegador considera que una petición es **cross-origin** cuando:
+
+- El frontend y la API no comparten:
+  - el mismo dominio
+  - o el mismo puerto
+  - o el mismo protocolo
+
+Ejemplo típico en desarrollo:
+
+- Frontend React:  
+  `http://localhost:5173`
+- API FastAPI:  
+  `http://localhost:8000`
+
+Aunque ambos estén en `localhost`, **el puerto es distinto**, por lo que el navegador bloquea la petición si la API no lo permite explícitamente.
+
+---
+
+### 13.2 Por qué aparece el error de CORS
+
+El error **no lo genera FastAPI**, sino el navegador.
+
+El navegador:
+
+1. Detecta que la petición va a otro origen
+2. Comprueba si la respuesta incluye cabeceras CORS válidas
+3. Si no están presentes, bloquea la respuesta por seguridad
+
+Esto evita, por ejemplo, que una web maliciosa acceda a datos privados de otra web sin permiso.
+
+---
+
+### 13.3 Solución: Middleware CORS en FastAPI
+
+FastAPI permite configurar CORS de forma sencilla mediante un **middleware**.
+
+- Podemos ver en la documentación de FastApi la [manera de solucionar dicho problema de CORS](https://fastapi.tiangolo.com/tutorial/cors/).
+
+Este middleware añade las cabeceras necesarias a las respuestas de la API para indicar qué orígenes están permitidos.
+
+---
+
+### 13.4 Configuración básica de CORS
+
+En el archivo principal (`main.py`) se debe añadir lo siguiente:
+
+```python
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
+app = FastAPI()
+
+app.add_middleware(
+CORSMiddleware,
+allow_origins=[
+"http://localhost:5173", # React (Vite)
+"http://localhost:3000" # React (Create React App)
+],
+allow_credentials=True,
+allow_methods=["*"],
+allow_headers=["*"],
+)
+```
+
+---
+
+### 13.5 Explicación de los parámetros
+
+- **allow_origins**  
+  Lista de orígenes permitidos para acceder a la API.  
+  Es recomendable especificarlos explícitamente.
+
+- **allow_credentials**  
+  Permite enviar cookies o credenciales si fuera necesario.
+
+- **allow_methods**  
+  Métodos HTTP permitidos (`GET`, `POST`, `PUT`, `DELETE`, etc.).  
+  Con `"*"` se permiten todos.
+
+- **allow_headers**  
+  Cabeceras HTTP permitidas.  
+  Con `"*"` se permiten todas.
+
+---
+
+### 13.6 Configuración en desarrollo vs producción
+
+Durante el desarrollo se puede permitir cualquier origen:
+
+```python
+allow_origins=["*"]
+```
+
+⚠️ **No recomendado en producción**, ya que elimina las restricciones de seguridad.
+
+En producción:
+
+- Se deben especificar los dominios reales del frontend
+- Nunca usar `"*"` si hay datos sensibles
+
+---
+
+### 13.7 Resumen
+
+- CORS es una **protección del navegador**, no un error de FastAPI
+- Aparece cuando frontend y backend están en orígenes distintos
+- Se soluciona añadiendo el **middleware CORS**
+- FastAPI incluye soporte CORS de forma nativa y sencilla
 
 ---
