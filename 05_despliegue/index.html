@@ -408,10 +408,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-introduccion" class="md-nav__link">
+  <a href="#1-introduccion-al-despliegue-de-aplicaciones" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Introducción
+        1. Introducción al despliegue de aplicaciones
       
     </span>
   </a>
@@ -419,10 +419,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-problemas-del-despliegue-tradicional" class="md-nav__link">
+  <a href="#2-que-es-docker-y-por-que-se-utiliza" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Problemas del despliegue tradicional
+        2. Qué es Docker y por qué se utiliza
       
     </span>
   </a>
@@ -430,10 +430,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-que-es-docker" class="md-nav__link">
+  <a href="#3-arquitectura-de-la-aplicacion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. ¿Qué es Docker?
+        3. Arquitectura de la aplicación
       
     </span>
   </a>
@@ -441,22 +441,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-conceptos-basicos-de-docker" class="md-nav__link">
+  <a href="#4-contenerizacion-de-la-aplicacion-fastapi" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Conceptos básicos de Docker
+        4. Contenerización de la aplicación FastAPI
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="4. Conceptos básicos de Docker">
+    <nav class="md-nav" aria-label="4. Contenerización de la aplicación FastAPI">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#41-imagen" class="md-nav__link">
+  <a href="#41-archivo-requirementstxt" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.1 Imagen
+        4.1 Archivo requirements.txt
       
     </span>
   </a>
@@ -464,32 +464,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#42-contenedor" class="md-nav__link">
+  <a href="#42-creacion-del-dockerfile" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.2 Contenedor
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#43-dockerfile" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.3 Dockerfile
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#44-docker-hub" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.4 Docker Hub
+        4.2 Creación del Dockerfile
       
     </span>
   </a>
@@ -502,22 +480,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-sqlite-vs-postgresql" class="md-nav__link">
+  <a href="#5-base-de-datos-postgresql-en-docker" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. SQLite vs PostgreSQL
+        5. Base de datos PostgreSQL en Docker
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="5. SQLite vs PostgreSQL">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-persistencia-de-datos-con-volumenes-en-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Persistencia de datos con volúmenes en Docker
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Persistencia de datos con volúmenes en Docker">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#51-sqlite" class="md-nav__link">
+  <a href="#61-el-problema-de-los-contenedores" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.1 SQLite
+        6.1 El problema de los contenedores
       
     </span>
   </a>
@@ -525,10 +514,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#52-postgresql" class="md-nav__link">
+  <a href="#62-que-es-un-volumen-docker" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.2 PostgreSQL
+        6.2 Qué es un volumen Docker
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-volumenes-y-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 Volúmenes y PostgreSQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-definicion-y-uso-de-volumenes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 Definición y uso de volúmenes
       
     </span>
   </a>
@@ -541,22 +552,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-contenerizar-una-aplicacion-python" class="md-nav__link">
+  <a href="#7-docker-compose-orquestacion-de-servicios" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Contenerizar una aplicación Python
+        7. Docker Compose: orquestación de servicios
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="6. Contenerizar una aplicación Python">
+    <nav class="md-nav" aria-label="7. Docker Compose: orquestación de servicios">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#61-estructura-tipica-del-proyecto" class="md-nav__link">
+  <a href="#71-que-es-docker-compose" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.1 Estructura típica del proyecto
+        7.1 Qué es Docker Compose
       
     </span>
   </a>
@@ -564,10 +575,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#62-dockerfile-basico-para-python" class="md-nav__link">
+  <a href="#72-estructura-basica-de-docker-composeyml" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.2 Dockerfile básico para Python
+        7.2 Estructura básica de docker-compose.yml
       
     </span>
   </a>
@@ -575,10 +586,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#63-construccion-de-la-imagen" class="md-nav__link">
+  <a href="#73-definicion-del-servicio-de-la-api" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.3 Construcción de la imagen
+        7.3 Definición del servicio de la API
       
     </span>
   </a>
@@ -586,10 +597,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#64-ejecucion-del-contenedor" class="md-nav__link">
+  <a href="#74-definicion-del-servicio-de-base-de-datos" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.4 Ejecución del contenedor
+        7.4 Definición del servicio de base de datos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#75-archivo-docker-composeyml-completo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.5 Archivo docker-compose.yml completo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#76-comandos-basicos-de-docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.6 Comandos básicos de Docker Compose
       
     </span>
   </a>
@@ -602,10 +635,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-bases-de-datos-en-contenedores" class="md-nav__link">
+  <a href="#8-creacion-de-tablas-en-la-base-de-datos" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7. Bases de datos en contenedores
+        8. Creación de tablas en la base de datos
       
     </span>
   </a>
@@ -613,49 +646,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#8-docker-compose" class="md-nav__link">
+  <a href="#9-flujo-completo-de-despliegue" class="md-nav__link">
     <span class="md-ellipsis">
       
-        8. Docker Compose
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="8. Docker Compose">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#81-que-es-docker-compose" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        8.1 ¿Qué es Docker Compose?
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#82-ejemplo-de-docker-composeyml" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        8.2 Ejemplo de docker-compose.yml
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-variables-de-entorno" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        9. Variables de entorno
+        9. Flujo completo de despliegue
       
     </span>
   </a>
@@ -663,43 +657,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#10-conexion-desde-python-sqlalchemy" class="md-nav__link">
+  <a href="#10-conclusion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        10. Conexión desde Python (SQLAlchemy)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#11-persistencia-de-datos" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        11. Persistencia de datos
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#12-buenas-practicas" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        12. Buenas prácticas
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#13-conclusion" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        13. Conclusión
+        10. Conclusión
       
     </span>
   </a>
@@ -741,10 +702,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-introduccion" class="md-nav__link">
+  <a href="#1-introduccion-al-despliegue-de-aplicaciones" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Introducción
+        1. Introducción al despliegue de aplicaciones
       
     </span>
   </a>
@@ -752,10 +713,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-problemas-del-despliegue-tradicional" class="md-nav__link">
+  <a href="#2-que-es-docker-y-por-que-se-utiliza" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Problemas del despliegue tradicional
+        2. Qué es Docker y por qué se utiliza
       
     </span>
   </a>
@@ -763,10 +724,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-que-es-docker" class="md-nav__link">
+  <a href="#3-arquitectura-de-la-aplicacion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. ¿Qué es Docker?
+        3. Arquitectura de la aplicación
       
     </span>
   </a>
@@ -774,22 +735,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-conceptos-basicos-de-docker" class="md-nav__link">
+  <a href="#4-contenerizacion-de-la-aplicacion-fastapi" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Conceptos básicos de Docker
+        4. Contenerización de la aplicación FastAPI
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="4. Conceptos básicos de Docker">
+    <nav class="md-nav" aria-label="4. Contenerización de la aplicación FastAPI">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#41-imagen" class="md-nav__link">
+  <a href="#41-archivo-requirementstxt" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.1 Imagen
+        4.1 Archivo requirements.txt
       
     </span>
   </a>
@@ -797,32 +758,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#42-contenedor" class="md-nav__link">
+  <a href="#42-creacion-del-dockerfile" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.2 Contenedor
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#43-dockerfile" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.3 Dockerfile
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#44-docker-hub" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.4 Docker Hub
+        4.2 Creación del Dockerfile
       
     </span>
   </a>
@@ -835,22 +774,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-sqlite-vs-postgresql" class="md-nav__link">
+  <a href="#5-base-de-datos-postgresql-en-docker" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. SQLite vs PostgreSQL
+        5. Base de datos PostgreSQL en Docker
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="5. SQLite vs PostgreSQL">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-persistencia-de-datos-con-volumenes-en-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Persistencia de datos con volúmenes en Docker
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Persistencia de datos con volúmenes en Docker">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#51-sqlite" class="md-nav__link">
+  <a href="#61-el-problema-de-los-contenedores" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.1 SQLite
+        6.1 El problema de los contenedores
       
     </span>
   </a>
@@ -858,10 +808,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#52-postgresql" class="md-nav__link">
+  <a href="#62-que-es-un-volumen-docker" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.2 PostgreSQL
+        6.2 Qué es un volumen Docker
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-volumenes-y-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 Volúmenes y PostgreSQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-definicion-y-uso-de-volumenes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 Definición y uso de volúmenes
       
     </span>
   </a>
@@ -874,22 +846,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-contenerizar-una-aplicacion-python" class="md-nav__link">
+  <a href="#7-docker-compose-orquestacion-de-servicios" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Contenerizar una aplicación Python
+        7. Docker Compose: orquestación de servicios
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="6. Contenerizar una aplicación Python">
+    <nav class="md-nav" aria-label="7. Docker Compose: orquestación de servicios">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#61-estructura-tipica-del-proyecto" class="md-nav__link">
+  <a href="#71-que-es-docker-compose" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.1 Estructura típica del proyecto
+        7.1 Qué es Docker Compose
       
     </span>
   </a>
@@ -897,10 +869,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#62-dockerfile-basico-para-python" class="md-nav__link">
+  <a href="#72-estructura-basica-de-docker-composeyml" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.2 Dockerfile básico para Python
+        7.2 Estructura básica de docker-compose.yml
       
     </span>
   </a>
@@ -908,10 +880,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#63-construccion-de-la-imagen" class="md-nav__link">
+  <a href="#73-definicion-del-servicio-de-la-api" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.3 Construcción de la imagen
+        7.3 Definición del servicio de la API
       
     </span>
   </a>
@@ -919,10 +891,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#64-ejecucion-del-contenedor" class="md-nav__link">
+  <a href="#74-definicion-del-servicio-de-base-de-datos" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.4 Ejecución del contenedor
+        7.4 Definición del servicio de base de datos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#75-archivo-docker-composeyml-completo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.5 Archivo docker-compose.yml completo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#76-comandos-basicos-de-docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.6 Comandos básicos de Docker Compose
       
     </span>
   </a>
@@ -935,10 +929,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-bases-de-datos-en-contenedores" class="md-nav__link">
+  <a href="#8-creacion-de-tablas-en-la-base-de-datos" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7. Bases de datos en contenedores
+        8. Creación de tablas en la base de datos
       
     </span>
   </a>
@@ -946,49 +940,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#8-docker-compose" class="md-nav__link">
+  <a href="#9-flujo-completo-de-despliegue" class="md-nav__link">
     <span class="md-ellipsis">
       
-        8. Docker Compose
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="8. Docker Compose">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#81-que-es-docker-compose" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        8.1 ¿Qué es Docker Compose?
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#82-ejemplo-de-docker-composeyml" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        8.2 Ejemplo de docker-compose.yml
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-variables-de-entorno" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        9. Variables de entorno
+        9. Flujo completo de despliegue
       
     </span>
   </a>
@@ -996,43 +951,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#10-conexion-desde-python-sqlalchemy" class="md-nav__link">
+  <a href="#10-conclusion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        10. Conexión desde Python (SQLAlchemy)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#11-persistencia-de-datos" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        11. Persistencia de datos
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#12-buenas-practicas" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        12. Buenas prácticas
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#13-conclusion" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        13. Conclusión
+        10. Conclusión
       
     </span>
   </a>
@@ -1056,174 +978,242 @@
 
 
 
-<h1 id="unidad-5-despliegue-de-aplicaciones-python-con-docker">Unidad 5 · Despliegue de aplicaciones Python con Docker</h1>
-<h2 id="1-introduccion">1. Introducción</h2>
-<p>Hasta ahora hemos desarrollado aplicaciones Python que se ejecutan en local, normalmente usando <strong>SQLite</strong> como base de datos.<br />
-Este enfoque es válido para aprender, pero no representa un entorno real de producción.</p>
-<p>En esta unidad aprenderemos a:</p>
+<h1 id="unidad-5-despliegue-de-aplicaciones-python-con-docker">Unidad 5 – Despliegue de aplicaciones Python con Docker</h1>
+<h2 id="1-introduccion-al-despliegue-de-aplicaciones">1. Introducción al despliegue de aplicaciones</h2>
+<p>Hasta ahora las aplicaciones Python se han ejecutado en local, utilizando entornos virtuales y bases de datos SQLite.<br />
+En esta unidad se aprenderá a <strong>desplegar una aplicación Python</strong> de forma reproducible y portable mediante <strong>contenedores Docker</strong>.</p>
+<p>El objetivo de la unidad es:</p>
 <ul>
-<li>Desplegar una aplicación Python de forma reproducible</li>
-<li>Separar la aplicación de la base de datos</li>
-<li>Usar contenedores Docker</li>
-<li>Utilizar una base de datos relacional real (PostgreSQL)</li>
+<li>Contenerizar una aplicación FastAPI</li>
+<li>Utilizar una base de datos relacional PostgreSQL</li>
+<li>Conectar la aplicación con la base de datos</li>
+<li>Garantizar la persistencia de los datos</li>
+<li>Comprender el flujo real de despliegue de una aplicación backend</li>
 </ul>
 <hr />
-<h2 id="2-problemas-del-despliegue-tradicional">2. Problemas del despliegue tradicional</h2>
-<p>El despliegue tradicional presenta varios problemas:</p>
+<h2 id="2-que-es-docker-y-por-que-se-utiliza">2. Qué es Docker y por qué se utiliza</h2>
+<p>Docker es una plataforma que permite ejecutar aplicaciones dentro de <strong>contenedores</strong>.</p>
+<p>Un contenedor:</p>
 <ul>
-<li>Diferencias entre sistemas operativos</li>
-<li>Versiones distintas de Python y librerías</li>
-<li>Dependencias mal instaladas</li>
-<li>El clásico problema de <em>“en mi ordenador funciona”</em></li>
+<li>Incluye la aplicación</li>
+<li>Incluye todas sus dependencias</li>
+<li>Se ejecuta igual en cualquier entorno</li>
 </ul>
-<p>Docker surge para resolver estos problemas.</p>
-<hr />
-<h2 id="3-que-es-docker">3. ¿Qué es Docker?</h2>
-<p>Docker es una plataforma que permite empaquetar aplicaciones y sus dependencias en <strong>contenedores</strong>.</p>
-<p>Un contenedor incluye:</p>
+<p>Ventajas principales:</p>
 <ul>
-<li>La aplicación</li>
-<li>Las librerías necesarias</li>
-<li>La configuración</li>
+<li>Portabilidad</li>
+<li>Reproducibilidad</li>
+<li>Aislamiento de servicios</li>
+<li>Facilidad de despliegue</li>
 </ul>
-<p>Todo ello se ejecuta de forma aislada y consistente en cualquier sistema.</p>
 <hr />
-<h2 id="4-conceptos-basicos-de-docker">4. Conceptos básicos de Docker</h2>
-<h3 id="41-imagen">4.1 Imagen</h3>
-<p>Una <strong>imagen</strong> es una plantilla inmutable que define cómo será un contenedor.</p>
-<h3 id="42-contenedor">4.2 Contenedor</h3>
-<p>Un <strong>contenedor</strong> es una instancia en ejecución de una imagen.</p>
-<h3 id="43-dockerfile">4.3 Dockerfile</h3>
-<p>Archivo de texto que define cómo se construye una imagen.</p>
-<h3 id="44-docker-hub">4.4 Docker Hub</h3>
-<p>Repositorio público de imágenes (por ejemplo, Python o PostgreSQL).</p>
-<hr />
-<h2 id="5-sqlite-vs-postgresql">5. SQLite vs PostgreSQL</h2>
-<h3 id="51-sqlite">5.1 SQLite</h3>
+<h2 id="3-arquitectura-de-la-aplicacion">3. Arquitectura de la aplicación</h2>
+<p>La aplicación que se va a desplegar consta de dos servicios:</p>
 <ul>
-<li>Base de datos basada en un archivo</li>
-<li>No es un servicio</li>
-<li>Muy sencilla de usar</li>
-<li>Ideal para aprendizaje y prototipos</li>
+<li>Servicio 1: Aplicación Python con FastAPI</li>
+<li>Servicio 2: Base de datos PostgreSQL</li>
 </ul>
-<h3 id="52-postgresql">5.2 PostgreSQL</h3>
-<ul>
-<li>Base de datos relacional cliente-servidor</li>
-<li>Pensada para múltiples usuarios</li>
-<li>Soporta concurrencia real</li>
-<li>Usada en entornos profesionales</li>
-</ul>
-<p>Ambas son <strong>bases de datos relacionales</strong>, pero <strong>no están pensadas para el mismo contexto</strong>.</p>
+<p>Cada servicio se ejecutará en su propio contenedor, pero estarán conectados entre sí.</p>
 <hr />
-<h2 id="6-contenerizar-una-aplicacion-python">6. Contenerizar una aplicación Python</h2>
-<h3 id="61-estructura-tipica-del-proyecto">6.1 Estructura típica del proyecto</h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>.
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── main.py
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├── requirements.txt
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>├── Dockerfile
-</span></code></pre></div>
-<hr />
-<h3 id="62-dockerfile-basico-para-python">6.2 Dockerfile básico para Python</h3>
-<div class="language-dockerfile highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.12-slim</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">COPY</span><span class="w"> </span>requirements.txt<span class="w"> </span>.
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="k">RUN</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--no-cache-dir<span class="w"> </span>-r<span class="w"> </span>requirements.txt
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="k">COPY</span><span class="w"> </span>.<span class="w"> </span>.
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;python&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;main.py&quot;</span><span class="p">]</span>
-</span></code></pre></div>
-<hr />
-<h3 id="63-construccion-de-la-imagen">6.3 Construcción de la imagen</h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>app-python<span class="w"> </span>.
-</span></code></pre></div>
-<hr />
-<h3 id="64-ejecucion-del-contenedor">6.4 Ejecución del contenedor</h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </span><span class="m">8000</span>:8000<span class="w"> </span>app-python
-</span></code></pre></div>
-<hr />
-<h2 id="7-bases-de-datos-en-contenedores">7. Bases de datos en contenedores</h2>
-<p>En un sistema real:</p>
-<ul>
-<li>La aplicación es un servicio</li>
-<li>La base de datos es otro servicio distinto</li>
-</ul>
-<p>Ejemplo de PostgreSQL en Docker:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\\</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span>--name<span class="w"> </span>postgres-db<span class="w"> </span><span class="se">\\</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span>-e<span class="w"> </span><span class="nv">POSTGRES_USER</span><span class="o">=</span>app<span class="w"> </span><span class="se">\\</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>app123<span class="w"> </span><span class="se">\\</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span>-e<span class="w"> </span><span class="nv">POSTGRES_DB</span><span class="o">=</span>appdb<span class="w"> </span><span class="se">\\</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">5432</span>:5432<span class="w"> </span><span class="se">\\</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">  </span>postgres
-</span></code></pre></div>
-<hr />
-<h2 id="8-docker-compose">8. Docker Compose</h2>
-<h3 id="81-que-es-docker-compose">8.1 ¿Qué es Docker Compose?</h3>
-<p>Docker Compose permite definir y ejecutar <strong>aplicaciones con varios contenedores</strong> usando un solo archivo YAML.</p>
-<hr />
-<h3 id="82-ejemplo-de-docker-composeyml">8.2 Ejemplo de docker-compose.yml</h3>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3.9&quot;</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nt">services</span><span class="p">:</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="nt">app</span><span class="p">:</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8000:8000&quot;</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db</span>
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
-</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">      </span><span class="nt">DATABASE_URL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgresql://app:app123@db:5432/appdb</span>
-</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
-</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">  </span><span class="nt">db</span><span class="p">:</span>
-</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres:15</span>
-</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
-</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">      </span><span class="nt">POSTGRES_USER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app</span>
-</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">      </span><span class="nt">POSTGRES_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app123</span>
-</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">      </span><span class="nt">POSTGRES_DB</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">appdb</span>
-</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
-</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres_data:/var/lib/postgresql/data</span>
-</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>
-</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="nt">volumes</span><span class="p">:</span>
-</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">  </span><span class="nt">postgres_data</span><span class="p">:</span>
-</span></code></pre></div>
-<hr />
-<h2 id="9-variables-de-entorno">9. Variables de entorno</h2>
-<p>Las credenciales <strong>no deben escribirse en el código</strong>.</p>
+<h2 id="4-contenerizacion-de-la-aplicacion-fastapi">4. Contenerización de la aplicación FastAPI</h2>
+<h3 id="41-archivo-requirementstxt">4.1 Archivo requirements.txt</h3>
+<p>La aplicación debe listar todas sus dependencias en un archivo <code>requirements.txt</code>.</p>
 <p>Ejemplo:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>DATABASE_URL=postgresql://app:app123@db:5432/appdb
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>fastapi
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>uvicorn
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>sqlalchemy
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>psycopg2-binary
 </span></code></pre></div>
 <hr />
-<h2 id="10-conexion-desde-python-sqlalchemy">10. Conexión desde Python (SQLAlchemy)</h2>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">DATABASE_URL</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;DATABASE_URL&quot;</span><span class="p">)</span>
+<h3 id="42-creacion-del-dockerfile">4.2 Creación del Dockerfile</h3>
+<p>El <code>Dockerfile</code> define cómo se construye la imagen de la aplicación.</p>
+<p>Ejemplo de <code>Dockerfile</code>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>FROM python:3.12-slim
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>WORKDIR /app
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>COPY requirements.txt .
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>RUN pip install --no-cache-dir -r requirements.txt
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>COPY . .
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>CMD [&quot;uvicorn&quot;, &quot;main:app&quot;, &quot;--host&quot;, &quot;0.0.0.0&quot;, &quot;--port&quot;, &quot;8000&quot;]
 </span></code></pre></div>
-<p>Cuando se usa Docker Compose:</p>
+<hr />
+<h2 id="5-base-de-datos-postgresql-en-docker">5. Base de datos PostgreSQL en Docker</h2>
+<p>PostgreSQL es una base de datos <strong>relacional</strong>, al igual que SQLite, pero orientada a entornos reales.</p>
+<p>Diferencias principales:</p>
 <ul>
-<li>El host no es localhost</li>
-<li>El host es el nombre del servicio (db)</li>
+<li>PostgreSQL funciona como servicio independiente</li>
+<li>SQLite es un archivo local</li>
+<li>PostgreSQL soporta concurrencia real y escalabilidad</li>
 </ul>
 <hr />
-<h2 id="11-persistencia-de-datos">11. Persistencia de datos</h2>
-<p>Los contenedores son efímeros:<br />
-si se eliminan, se pierden los datos.</p>
-<p>Para evitarlo se usan <strong>volúmenes Docker</strong>, que permiten mantener los datos aunque el contenedor se destruya.</p>
-<hr />
-<h2 id="12-buenas-practicas">12. Buenas prácticas</h2>
+<h2 id="6-persistencia-de-datos-con-volumenes-en-docker">6. Persistencia de datos con volúmenes en Docker</h2>
+<h3 id="61-el-problema-de-los-contenedores">6.1 El problema de los contenedores</h3>
+<p>Los contenedores Docker son <strong>efímeros</strong>.</p>
+<p>Si un contenedor se elimina:</p>
 <ul>
-<li>No subir credenciales al repositorio</li>
-<li>Usar archivos .env</li>
-<li>No incluir <strong>pycache</strong></li>
-<li>Separar desarrollo y producción</li>
-<li>Mantener imágenes ligeras</li>
+<li>Se pierde su sistema de archivos</li>
+<li>Se pierden los datos de la base de datos</li>
 </ul>
 <hr />
-<h2 id="13-conclusion">13. Conclusión</h2>
-<p>Docker permite desplegar aplicaciones reales y reproducibles.<br />
-SQLite es ideal para aprender, pero PostgreSQL es la opción adecuada para producción.</p>
+<h3 id="62-que-es-un-volumen-docker">6.2 Qué es un volumen Docker</h3>
+<p>Un <strong>volumen Docker</strong> permite almacenar datos fuera del contenedor.</p>
+<p>Características:</p>
+<ul>
+<li>Persisten aunque el contenedor se borre</li>
+<li>Son gestionados por Docker</li>
+<li>Se pueden reutilizar</li>
+</ul>
+<p>Idea clave:</p>
+<blockquote>
+<p>El contenedor es temporal,<br />
+el volumen es persistente.</p>
+</blockquote>
+<hr />
+<h3 id="63-volumenes-y-postgresql">6.3 Volúmenes y PostgreSQL</h3>
+<p>PostgreSQL almacena sus datos en:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>/var/lib/postgresql/data
+</span></code></pre></div>
+<p>Este directorio debe asociarse a un volumen para evitar la pérdida de datos.</p>
+<hr />
+<h3 id="64-definicion-y-uso-de-volumenes">6.4 Definición y uso de volúmenes</h3>
+<p>Definición del volumen:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>volumes:
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  postgres_data:
+</span></code></pre></div>
+<p>Asociación al contenedor:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>volumes:
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  - postgres_data:/var/lib/postgresql/data
+</span></code></pre></div>
+<hr />
+<h2 id="7-docker-compose-orquestacion-de-servicios">7. Docker Compose: orquestación de servicios</h2>
+<h3 id="71-que-es-docker-compose">7.1 Qué es Docker Compose</h3>
+<p>Docker Compose es una herramienta que permite definir y ejecutar <strong>múltiples contenedores</strong> de forma conjunta mediante un único archivo.</p>
+<p>Este archivo se llama <code>docker-compose.yml</code>.</p>
+<p>Docker Compose permite:</p>
+<ul>
+<li>Arrancar varios servicios a la vez</li>
+<li>Definir redes automáticamente</li>
+<li>Gestionar volúmenes</li>
+<li>Establecer dependencias entre servicios</li>
+</ul>
+<hr />
+<h3 id="72-estructura-basica-de-docker-composeyml">7.2 Estructura básica de docker-compose.yml</h3>
+<p>Un archivo <code>docker-compose.yml</code> se estructura en secciones.</p>
+<p>Ejemplo básico:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>services:
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>  api:
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    build: .
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>  db:
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    image: postgres:15
+</span></code></pre></div>
+<hr />
+<h3 id="73-definicion-del-servicio-de-la-api">7.3 Definición del servicio de la API</h3>
+<p>Ejemplo de servicio para la aplicación FastAPI:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>services:
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  api:
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    build: .
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    ports:
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>      - &quot;8000:8000&quot;
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    depends_on:
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>      - db
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    environment:
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>      DATABASE_URL: postgresql://app:app123@db:5432/appdb
+</span></code></pre></div>
+<p>Esto indica:</p>
+<ul>
+<li>Se construye la imagen desde el Dockerfile</li>
+<li>Se expone el puerto 8000</li>
+<li>Depende del servicio de base de datos</li>
+<li>Se define la cadena de conexión</li>
+</ul>
+<hr />
+<h3 id="74-definicion-del-servicio-de-base-de-datos">7.4 Definición del servicio de base de datos</h3>
+<p>Ejemplo de servicio PostgreSQL:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>services:
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>  db:
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    image: postgres:15
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    environment:
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>      POSTGRES_USER: app
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>      POSTGRES_PASSWORD: app123
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>      POSTGRES_DB: appdb
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>    volumes:
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>      - postgres_data:/var/lib/postgresql/data
+</span></code></pre></div>
+<hr />
+<h3 id="75-archivo-docker-composeyml-completo">7.5 Archivo docker-compose.yml completo</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>services:
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>  api:
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    build: .
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    ports:
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>      - &quot;8000:8000&quot;
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    depends_on:
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>      - db
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>    environment:
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>      DATABASE_URL: postgresql://app:app123@db:5432/appdb
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>  db:
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>    image: postgres:15
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>    environment:
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>      POSTGRES_USER: app
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>      POSTGRES_PASSWORD: app123
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>      POSTGRES_DB: appdb
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>    volumes:
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>      - postgres_data:/var/lib/postgresql/data
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>volumes:
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a>  postgres_data:
+</span></code></pre></div>
+<hr />
+<h3 id="76-comandos-basicos-de-docker-compose">7.6 Comandos básicos de Docker Compose</h3>
+<p>Arrancar servicios:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>docker compose up
+</span></code></pre></div>
+<p>Arrancar en segundo plano:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>docker compose up -d
+</span></code></pre></div>
+<p>Detener servicios:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>docker compose down
+</span></code></pre></div>
+<p>Detener y borrar volúmenes:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>docker compose down -v
+</span></code></pre></div>
+<hr />
+<h2 id="8-creacion-de-tablas-en-la-base-de-datos">8. Creación de tablas en la base de datos</h2>
+<p>Docker y PostgreSQL <strong>no crean las tablas</strong>.</p>
+<p>Las tablas las crea la <strong>aplicación Python</strong>, usando los modelos.</p>
+<p>Ejemplo en <code>main.py</code>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>from database.database import engine, Base
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>from models.user import User
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>Base.metadata.create_all(bind=engine)
+</span></code></pre></div>
+<hr />
+<h2 id="9-flujo-completo-de-despliegue">9. Flujo completo de despliegue</h2>
+<ol>
+<li>Docker construye las imágenes</li>
+<li>Docker Compose crea la red y los contenedores</li>
+<li>PostgreSQL crea la base de datos vacía</li>
+<li>La aplicación se conecta a PostgreSQL</li>
+<li>La aplicación crea las tablas</li>
+<li>Los datos se guardan en el volumen</li>
+</ol>
+<hr />
+<h2 id="10-conclusion">10. Conclusión</h2>
+<p>Docker y Docker Compose permiten desplegar aplicaciones Python de forma profesional.</p>
+<p>Conceptos clave aprendidos:</p>
+<ul>
+<li>Contenedores</li>
+<li>Imágenes</li>
+<li>Dockerfile</li>
+<li>Docker Compose</li>
+<li>Volúmenes</li>
+<li>Persistencia de datos</li>
+<li>Separación de servicios</li>
+</ul>
 
 
 
